@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyao HUANG 黄司瑶 - Curriculum Vitae</title>
+    <style>
+        /* --- 核心变量配置 --- */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #2980b9; 
+            --bg-color: #ffffff;
+            --text-muted: #7f8c8d;
+            --line-color: #ecf0f1;
+            --page-width: 210mm;
+            --page-height: 297mm;
+            --margin: 20mm;
+            --line-height: 1.45;
+        }
+
+        * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f7f6;
+            font-family: 'Segoe UI', Candara, 'DejaVu Sans', sans-serif;
+            color: var(--primary-color);
+            line-height: var(--line-height);
+        }
+
+        .resume-page {
+            width: var(--page-width);
+            height: var(--page-height);
+            margin: 20px auto;
+            background: var(--bg-color);
+            padding: var(--margin);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media print {
+            body { background: none; }
+            .resume-page { margin: 0; box-shadow: none; }
+        }
+
+        /* --- 头部区域 --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .info-content h1 {
+            margin: 0 0 5px 0;
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chinese-name {
+            text-transform: none;
+            font-size: 22px;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+        .contact-info {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .photo-area {
+            width: 25mm;
+            height: 35mm;
+            background: #f8f9fa;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .photo-area img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .photo-placeholder { font-size: 9px; color: #999; text-align: center; }
+
+        /* --- 内容模块 --- */
+        section { margin-top: 10px; }
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .item { margin-bottom: 10px; }
+        .item-header { display: flex; justify-content: space-between; font-weight: 600; font-size: 13px; }
+        .item-sub { display: flex; justify-content: space-between; font-style: italic; color: #555; font-size: 12px; margin-top: 2px; }
+
+        ul { margin: 4px 0; padding-left: 15px; font-size: 11.5px; }
+        li { margin-bottom: 3px; text-align: justify; }
+
+        .achievement { font-weight: 600; color: #1a5a80; }
+
+        .skills-grid { font-size: 11.5px; display: grid; grid-template-columns: auto 1fr; gap: 5px 15px; }
+        .skill-cat { font-weight: bold; }
+
+        #photo-upload { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="resume-page">
+        <header class="header">
+            <div class="info-content">
+                <h1>Siyao HUANG <span class="chinese-name">黄司瑶</span></h1>
+                <div class="contact-info">
+                    <span><strong>Mobile:</strong> +852 5692 2547</span>
+                    <span><strong>Email:</strong> imsiyaohuang@gmail.com</span>
+                </div>
+                <div class="contact-info">
+                    <span><strong>WhatsApp:</strong> +44 7410501742</span>
+                    <span><strong>Location:</strong> Hong Kong / Guangzhou</span>
+                </div>
+            </div>
+            
+            <div class="photo-area" onclick="document.getElementById('photo-upload').click()">
+                <img id="avatar-img">
+                <div id="placeholder-text" class="photo-placeholder">Click to upload<br>ID Photo</div>
+                <input type="file" id="photo-upload" accept="image/*" onchange="handleImageUpload(this)">
+            </div>
+        </header>
+
+        <section>
+            <div class="section-title">Education</div>
+            <div class="item">
+                <div class="item-header">The University of Hong Kong</div>
+                <div class="item-sub">
+                    <span>Master of Arts in Philosophy, Politics and Economics (PPE)</span>
+                    <span>09/2024 – 12/2025</span>
+                </div>
+                <ul>
+                    <li>Key Modules: Critical Thinking in Finance, Institutional Economics, Ethics and Economics</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">The University of Glasgow, United Kingdom</div>
+                <div class="item-sub">
+                    <span>Economics MA (SocSci) (Hons)</span>
+                    <span>09/2020 – 06/2024</span>
+                </div>
+                <ul>
+                    <li>Key Modules: Microeconomics, Macroeconomics, Behavioral Economics, Econometrics, Public Economics</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Internship Experience</div>
+            <div class="item">
+                <div class="item-header">Chang'an Fund Management Co., Ltd.</div>
+                <div class="item-sub">
+                    <span>Research Assistant Intern, Research Department</span>
+                    <span>06/2023 – 08/2023</span>
+                </div>
+                <ul>
+                    <li>Conducted in-depth research on Chinese advanced jewelry and cosmetics industries; analyzed company profiles and industry dynamics.</li>
+                    <li>Predicted future trends for target companies over a two-year horizon and prepared summaries for roadshow conferences.</li>
+                    <li><span class="achievement">Key Achievement:</span> Analyzed quarterly sales data (2022-2024) for 42 cosmetic brands across Tmall and Douyin, uncovering platform-specific trends via detailed Excel analysis.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">Agricultural Bank of China</div>
+                <div class="item-sub">
+                    <span>Assistant, Personal Loan Department</span>
+                    <span>03/2021 – 05/2021</span>
+                </div>
+                <ul>
+                    <li>Responsible for collecting and organizing diverse loan information and data.</li>
+                    <li>Assisted in auditing, reviewing, and processing reimbursement applications and claims.</li>
+                    <li><span class="achievement">Key Achievement:</span> Efficiently managed 100+ loan documents within two months, streamlining approval workflows and data accuracy.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Practical Project Experience</div>
+            <div class="item">
+                <div class="item-header">Selfie Studio Business Practice Project</div>
+                <div class="item-sub">
+                    <span>Project Lead</span>
+                    <span>08/2023 – 02/2024</span>
+                </div>
+                <ul>
+                    <li>Oversaw full operations, transitioning from a core member to the overall project lead after team adjustments.</li>
+                    <li>Managed Douyin short-video operations: planned and edited themed content to drive end-to-end traffic attraction.</li>
+                    <li>Facilitated private domain conversion: directed platform traffic to social accounts and managed the full sales funnel via 1-on-1 engagement.</li>
+                    <li><span class="achievement">Key Achievement:</span> Led the project to positive revenue; gained solid competencies in content planning, video production, and operational optimization.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Skills & Others</div>
+            <div class="skills-grid">
+                <span class="skill-cat">Languages:</span>
+                <span>Mandarin & Cantonese (Native), English (Fluent)</span>
+                
+                <span class="skill-cat">Software:</span>
+                <span>Stata (Econometrics), R Studio (Visualization), MATLAB (Modeling), MS Office Suite</span>
+                
+                <span class="skill-cat">Design:</span>
+                <span>Adobe Photoshop & Lightroom (Advanced photo retouching and post-production)</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 自动探测本地头像
+        function initAvatar() {
+            const img = document.getElementById('avatar-img');
+            const placeholder = document.getElementById('placeholder-text');
+            const formats = ['png', 'jpg', 'jpeg'];
+            let found = false;
+            function tryLoad(i) {
+                if (i >= formats.length || found) return;
+                const t = new Image();
+                t.src = `avatar.${formats[i]}`;
+                t.onload = () => { if(!found){ img.src=t.src; img.style.display='block'; placeholder.style.display='none'; found=true; } };
+                t.onerror = () => tryLoad(i + 1);
+            }
+            tryLoad(0);
+        }
+
+        // 手动上传头像预览
+        function handleImageUpload(input) {
+            const img = document.getElementById('avatar-img');
+            const placeholder = document.getElementById('placeholder-text');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        window.onload = initAvatar;
+    </script>
+</body>
+</html>
